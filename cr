@@ -39,6 +39,13 @@ case $extension in
     javac $1
     executable_name="${1%.*}"
     ;;
+   out)
+    if [[ $silent_mode -eq 0 ]]; then
+	echo "Determined file type: ${bold}OUT${normal}"
+	echo "This file is already compiled. No compilation necessary."
+    fi
+    executable_name=$1
+    ;;	
   *)
     if [[ $silent_mode -eq 0 ]]; then
       echo "Error: Unsupported file type, cannot autocompile. Please compile and run manually."
